@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProphetsWay.AoC.Core", "ProphetsWay.AoC.Core\ProphetsWay.AoC.Core.csproj", "{22DB685C-F7BF-4DAC-BE0D-7A0B5BA7D53A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProphetsWay.AoC.Core.Test", "ProphetsWay.AoC.Core.Test\ProphetsWay.AoC.Core.Test.csproj", "{FFFD68D2-A0BF-4512-A8DD-33B70E9C246C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22DB685C-F7BF-4DAC-BE0D-7A0B5BA7D53A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22DB685C-F7BF-4DAC-BE0D-7A0B5BA7D53A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22DB685C-F7BF-4DAC-BE0D-7A0B5BA7D53A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22DB685C-F7BF-4DAC-BE0D-7A0B5BA7D53A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFFD68D2-A0BF-4512-A8DD-33B70E9C246C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFFD68D2-A0BF-4512-A8DD-33B70E9C246C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFFD68D2-A0BF-4512-A8DD-33B70E9C246C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFFD68D2-A0BF-4512-A8DD-33B70E9C246C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A1C1BB01-5490-4752-892A-8F039C28BEED}
+	EndGlobalSection
+EndGlobal
