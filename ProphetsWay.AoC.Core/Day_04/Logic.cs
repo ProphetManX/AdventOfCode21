@@ -67,7 +67,7 @@ namespace ProphetsWay.AoC.Core.Day_04
             return (callOuts, boards);
         }
 
-        public int Part1()
+        public override long Part1()
         {
             var (callOuts, boards) = SetupGame();
 
@@ -83,7 +83,7 @@ namespace ProphetsWay.AoC.Core.Day_04
             throw new Exception("shouldn't be here...");
         }
 
-        public int Part2()
+        public override long Part2()
         {
             var (callOuts, boards) = SetupGame();
 

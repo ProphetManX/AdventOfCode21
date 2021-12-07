@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProphetsWay.AoC.Core.Day_02
 {
-    public class Logic
+    public class Logic : BaseLogic
     {
-        public int Part1()
+        public override long Part1()
         {
             //read in input text file
             var path = $"{Directory.GetCurrentDirectory()}\\Day_02\\input.txt";
@@ -48,7 +48,7 @@ namespace ProphetsWay.AoC.Core.Day_02
             return horizontal * depth;
         }
 
-        public int Part2()
+        public override long Part2()
         {
             //read in input text file
             var path = $"{Directory.GetCurrentDirectory()}\\Day_02\\input.txt";

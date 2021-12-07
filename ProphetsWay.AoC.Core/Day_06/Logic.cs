@@ -51,12 +51,12 @@ namespace ProphetsWay.AoC.Core.Day_06
             return totalFish;
         }
 
-        public long Part1()
+        public override long Part1()
         {
             return ProcessFish(80);
         }
 
-        public long Part2()
+        public override long Part2()
         {
             return ProcessFish(256);
         }

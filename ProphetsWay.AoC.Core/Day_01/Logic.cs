@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ProphetsWay.AoC.Core.Day_01
 {
-    public class Logic
+    public class Logic : BaseLogic
     {
-        public int Part1()
+        public override long Part1()
         {
             //read in input text file
             var path = $"{Directory.GetCurrentDirectory()}\\Day_01\\input.txt";
@@ -40,7 +40,7 @@ namespace ProphetsWay.AoC.Core.Day_01
             return increases;
         }
 
-        public int Part2()
+        public override long Part2()
         {
             //read in input text file
             var path = $"{Directory.GetCurrentDirectory()}\\Day_01\\input.txt";
