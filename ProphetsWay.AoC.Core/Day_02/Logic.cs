@@ -8,7 +8,7 @@ namespace ProphetsWay.AoC.Core.Day_02
 {
     public class Logic : BaseLogic
     {
-        public override long Part1()
+        public override string Part1()
         {
             //read in input text file
             var path = $"{Directory.GetCurrentDirectory()}\\Day_02\\input.txt";
@@ -45,10 +45,10 @@ namespace ProphetsWay.AoC.Core.Day_02
                 }
             }
 
-            return horizontal * depth;
+            return (horizontal * depth).ToString();
         }
 
-        public override long Part2()
+        public override string Part2()
         {
             //read in input text file
             var path = $"{Directory.GetCurrentDirectory()}\\Day_02\\input.txt";
@@ -87,7 +87,7 @@ namespace ProphetsWay.AoC.Core.Day_02
                 }
             }
 
-            return horizontal * depth;
+            return (horizontal * depth).ToString();
         }
 
     }

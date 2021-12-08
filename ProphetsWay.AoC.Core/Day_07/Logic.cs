@@ -63,14 +63,14 @@ namespace ProphetsWay.AoC.Core.Day_07
             return actualCost;
         }
     
-        public override long Part1()
+        public override string Part1()
         {
-            return CalculateCrabFuelDelta(true);
+            return CalculateCrabFuelDelta(true).ToString();
         }
 
-        public override long Part2()
+        public override string Part2()
         {
-            return CalculateCrabFuelDelta(false);
+            return CalculateCrabFuelDelta(false).ToString();
         }
 
         public class CrabSub

@@ -9,7 +9,7 @@ namespace ProphetsWay.AoC.Core.Day_05
     public class Logic : BaseLogic
     {
       
-        public override long Part1()
+        public override string Part1()
         {
             var reader = GetInputTextReader();
 
@@ -33,10 +33,10 @@ namespace ProphetsWay.AoC.Core.Day_05
                 }
             }
 
-            return map.Positions.Where(p => p.Coverage > 1).Count();
+            return map.Positions.Where(p => p.Coverage > 1).Count().ToString();
         }
 
-        public override long Part2()
+        public override string Part2()
         {
             var reader = GetInputTextReader();
 
@@ -67,7 +67,7 @@ namespace ProphetsWay.AoC.Core.Day_05
                 }
             }
 
-            return map.Positions.Where(p => p.Coverage > 1).Count();
+            return map.Positions.Where(p => p.Coverage > 1).Count().ToString();
         }
 
         public class Map

@@ -67,7 +67,7 @@ namespace ProphetsWay.AoC.Core.Day_04
             return (callOuts, boards);
         }
 
-        public override long Part1()
+        public override string Part1()
         {
             var (callOuts, boards) = SetupGame();
 
@@ -77,13 +77,13 @@ namespace ProphetsWay.AoC.Core.Day_04
                 var winningBoard = boards.SingleOrDefault(x => x.WinningBoard);
 
                 if (winningBoard != null)
-                    return winningBoard.Score;
+                    return winningBoard.Score.ToString();
             }
 
             throw new Exception("shouldn't be here...");
         }
 
-        public override long Part2()
+        public override string Part2()
         {
             var (callOuts, boards) = SetupGame();
 
@@ -103,7 +103,7 @@ namespace ProphetsWay.AoC.Core.Day_04
                 }
             }
 
-            return lastWinningBoard.Score;
+            return lastWinningBoard.Score.ToString();
         }
 
         public class Board

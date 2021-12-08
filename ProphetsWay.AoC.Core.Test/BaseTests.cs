@@ -9,8 +9,8 @@ namespace ProphetsWay.AoC.Core.Test
         private T _logic;
         private string _day;
 
-        public abstract long Part1Result { get; }
-        public abstract long Part2Result { get; }
+        public abstract string Part1Result { get; }
+        public abstract string Part2Result { get; }
 
         [SetUp]
         public void Setup()

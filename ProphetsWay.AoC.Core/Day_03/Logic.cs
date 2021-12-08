@@ -8,7 +8,7 @@ namespace ProphetsWay.AoC.Core.Day_03
 {
     public class Logic : BaseLogic
     {
-        public override long Part1()
+        public override string Part1()
         {
             //read in input text file
             var path = $"{Directory.GetCurrentDirectory()}\\Day_03\\input.txt";
@@ -59,10 +59,10 @@ namespace ProphetsWay.AoC.Core.Day_03
             var gamma = Convert.ToInt32(sbGamma.ToString(), 2);
             var epsilon = Convert.ToInt32(sbEpsilon.ToString(), 2);
 
-            return gamma * epsilon;
+            return (gamma * epsilon).ToString();
         }
 
-        public override long Part2()
+        public override string Part2()
         {
             //read in input text file
             var path = $"{Directory.GetCurrentDirectory()}\\Day_03\\input.txt";
@@ -133,7 +133,7 @@ namespace ProphetsWay.AoC.Core.Day_03
             var oxy = Convert.ToInt32(oxySubset.Single(), 2);
             var co2 = Convert.ToInt32(co2Subset.Single(), 2);
 
-            return oxy * co2;
+            return (oxy * co2).ToString();
         }
 
 

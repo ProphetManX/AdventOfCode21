@@ -9,7 +9,7 @@ namespace ProphetsWay.AoC.Core.Day_01
 {
     public class Logic : BaseLogic
     {
-        public override long Part1()
+        public override string Part1()
         {
             //read in input text file
             var path = $"{Directory.GetCurrentDirectory()}\\Day_01\\input.txt";
@@ -37,10 +37,10 @@ namespace ProphetsWay.AoC.Core.Day_01
                 last = value;
             }
 
-            return increases;
+            return increases.ToString();
         }
 
-        public override long Part2()
+        public override string Part2()
         {
             //read in input text file
             var path = $"{Directory.GetCurrentDirectory()}\\Day_01\\input.txt";
@@ -93,7 +93,7 @@ namespace ProphetsWay.AoC.Core.Day_01
                 line = reader.ReadLine();
             }
 
-            return increases;
+            return increases.ToString();
         }
 
         public class Window

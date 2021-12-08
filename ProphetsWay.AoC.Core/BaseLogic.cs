@@ -21,7 +21,7 @@ namespace ProphetsWay.AoC.Core
             return reader;
         }
 
-        public abstract long Part1();
-        public abstract long Part2();
+        public abstract string Part1();
+        public abstract string Part2();
     }
 }

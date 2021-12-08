@@ -51,14 +51,14 @@ namespace ProphetsWay.AoC.Core.Day_06
             return totalFish;
         }
 
-        public override long Part1()
+        public override string Part1()
         {
-            return ProcessFish(80);
+            return ProcessFish(80).ToString();
         }
 
-        public override long Part2()
+        public override string Part2()
         {
-            return ProcessFish(256);
+            return ProcessFish(256).ToString();
         }
 
         public class Fish
