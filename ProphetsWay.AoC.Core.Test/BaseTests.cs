@@ -25,7 +25,7 @@ namespace ProphetsWay.AoC.Core.Test
         public void TestPart1()
         {
             var result = _logic.Part1();
-            Assert.AreEqual(result, Part1Result);
+            Assert.AreEqual(Part1Result, result);
             Console.WriteLine($"{_day} Part 1 Result: {result}");
         }
 
@@ -33,7 +33,7 @@ namespace ProphetsWay.AoC.Core.Test
         public void TestPart2()
         {
             var result = _logic.Part2();
-            Assert.AreEqual(result, Part2Result);
+            Assert.AreEqual(Part2Result, result);
             Console.WriteLine($"{_day} Part 2 Result: {result}");
         }
     }

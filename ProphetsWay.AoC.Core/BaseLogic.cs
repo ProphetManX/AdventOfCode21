@@ -12,9 +12,11 @@ namespace ProphetsWay.AoC.Core
         {
             var t = GetType();
             var ns = t.Namespace;
-            var day = ns.Split(".").Last();
+            var parts = ns.Split(".");
+            var year = parts[3];
+            var day = parts[4];
 
-            var path = $"{Directory.GetCurrentDirectory()}\\{day}\\input.txt";
+            var path = $"{Directory.GetCurrentDirectory()}\\{year}\\{day}\\input.txt";
             var fi = new FileInfo(path);
             var reader = fi.OpenText();
 

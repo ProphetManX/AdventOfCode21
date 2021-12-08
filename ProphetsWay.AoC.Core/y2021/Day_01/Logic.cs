@@ -5,16 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProphetsWay.AoC.Core.Day_01
+namespace ProphetsWay.AoC.Core.y2021.Day_01
 {
     public class Logic : BaseLogic
     {
         public override string Part1()
         {
-            //read in input text file
-            var path = $"{Directory.GetCurrentDirectory()}\\Day_01\\input.txt";
-            var fi = new FileInfo(path);
-            var reader = fi.OpenText();
+            var reader = GetInputTextReader();
             int? last = null;
             var increases = 0; 
 
@@ -43,9 +40,7 @@ namespace ProphetsWay.AoC.Core.Day_01
         public override string Part2()
         {
             //read in input text file
-            var path = $"{Directory.GetCurrentDirectory()}\\Day_01\\input.txt";
-            var fi = new FileInfo(path);
-            var reader = fi.OpenText();
+            var reader = GetInputTextReader();
 
             int? windowAlpha = null;
             int? windowBravo = null;

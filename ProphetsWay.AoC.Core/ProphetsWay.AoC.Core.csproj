@@ -8,35 +8,39 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Day_01\Input.txt" />
-    <None Remove="Day_02\input.txt" />
-    <None Remove="Day_07\input.txt" />
-    <None Remove="Day_06\input.txt" />
-    <None Remove="Day_05\input.txt" />
-    <None Remove="Day_04\input.txt" />
-    <None Remove="Day_03\input.txt" />
+    <None Remove="y2020\Day_01\Input.txt" />
+    <None Remove="y2021\Day_01\Input.txt" />
+    <None Remove="y2021\Day_02\input.txt" />
+    <None Remove="y2021\Day_07\input.txt" />
+    <None Remove="y2021\Day_06\input.txt" />
+    <None Remove="y2021\Day_05\input.txt" />
+    <None Remove="y2021\Day_04\input.txt" />
+    <None Remove="y2021\Day_03\input.txt" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Day_01\Input.txt">
+    <Content Include="y2020\Day_01\Input.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Day_02\input.txt">
+    <Content Include="y2021\Day_01\Input.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Day_07\input.txt">
+    <Content Include="y2021\Day_02\input.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Day_06\input.txt">
+    <Content Include="y2021\Day_07\input.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Day_05\input.txt">
+    <Content Include="y2021\Day_06\input.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Day_04\input.txt">
+    <Content Include="y2021\Day_05\input.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Day_03\input.txt">
+    <Content Include="y2021\Day_04\input.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="y2021\Day_03\input.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

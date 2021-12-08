@@ -4,16 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProphetsWay.AoC.Core.Day_02
+namespace ProphetsWay.AoC.Core.y2021.Day_02
 {
     public class Logic : BaseLogic
     {
         public override string Part1()
         {
             //read in input text file
-            var path = $"{Directory.GetCurrentDirectory()}\\Day_02\\input.txt";
-            var fi = new FileInfo(path);
-            var reader = fi.OpenText();
+            var reader = GetInputTextReader();
 
             int horizontal = 0;
             int depth = 0;
@@ -51,9 +49,7 @@ namespace ProphetsWay.AoC.Core.Day_02
         public override string Part2()
         {
             //read in input text file
-            var path = $"{Directory.GetCurrentDirectory()}\\Day_02\\input.txt";
-            var fi = new FileInfo(path);
-            var reader = fi.OpenText();
+            var reader = GetInputTextReader();
 
             int horizontal = 0;
             int depth = 0;

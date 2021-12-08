@@ -4,16 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProphetsWay.AoC.Core.Day_03
+namespace ProphetsWay.AoC.Core.y2021.Day_03
 {
     public class Logic : BaseLogic
     {
         public override string Part1()
         {
             //read in input text file
-            var path = $"{Directory.GetCurrentDirectory()}\\Day_03\\input.txt";
-            var fi = new FileInfo(path);
-            var reader = fi.OpenText();
+            var reader = GetInputTextReader();
 
             var totalReadings = 0;
             var positionPositives = new Dictionary<int, int>();
@@ -65,9 +63,7 @@ namespace ProphetsWay.AoC.Core.Day_03
         public override string Part2()
         {
             //read in input text file
-            var path = $"{Directory.GetCurrentDirectory()}\\Day_03\\input.txt";
-            var fi = new FileInfo(path);
-            var reader = fi.OpenText();
+            var reader = GetInputTextReader();
 
             var readings = new List<string>();
 

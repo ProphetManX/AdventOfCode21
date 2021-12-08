@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProphetsWay.AoC.Core.Day_06
+namespace ProphetsWay.AoC.Core.y2021.Day_06
 {
     public class Logic : BaseLogic
     {
