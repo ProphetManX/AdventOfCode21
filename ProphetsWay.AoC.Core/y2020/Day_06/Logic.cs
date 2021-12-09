@@ -1,6 +1,4 @@
-﻿using System.Reflection.Metadata.Ecma335;
-
-namespace ProphetsWay.AoC.Core.y2020.Day_06
+﻿namespace ProphetsWay.AoC.Core.y2020.Day_06
 {
     public class Logic : BaseLogic
     {
