@@ -1,16 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ProphetsWay.AoC.Core.y2021.Day_07
+﻿namespace ProphetsWay.AoC.Core.y2021.Day_07
 {
     public class Logic : BaseLogic
     {
-        public long CalculateCrabFuelDelta(bool basicFuel)
+        public override string Part1()
         {
-            var reader = GetInputTextReader();
+            return Part1Logic(false);
+        }
+
+        public override string Part2()
+        {
+            return Part2Logic(false);
+        }
+
+        public override string Sample1()
+        {
+            return Part1Logic(true);
+        }
+
+        public override string Sample2()
+        {
+            return Part2Logic(true);
+        }
+
+        public long CalculateCrabFuelDelta(bool isSample, bool basicFuel)
+        {
+            var reader = GetInputTextReader(isSample);
 
             var line = reader.ReadToEnd();
             var initPositions = line.Split(",");
@@ -62,15 +76,15 @@ namespace ProphetsWay.AoC.Core.y2021.Day_07
 
             return actualCost;
         }
-    
-        public override string Part1()
+
+        private string Part1Logic(bool isSample)
         {
-            return CalculateCrabFuelDelta(true).ToString();
+            return CalculateCrabFuelDelta(isSample, true).ToString();
         }
 
-        public override string Part2()
+        private string Part2Logic(bool isSample)
         {
-            return CalculateCrabFuelDelta(false).ToString();
+            return CalculateCrabFuelDelta(isSample, false).ToString();
         }
 
         public class CrabSub

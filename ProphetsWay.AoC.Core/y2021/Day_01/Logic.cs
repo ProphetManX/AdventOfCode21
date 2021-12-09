@@ -1,19 +1,11 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ProphetsWay.AoC.Core.y2021.Day_01
+﻿namespace ProphetsWay.AoC.Core.y2021.Day_01
 {
     public class Logic : BaseLogic
     {
-        public override string Part1()
+        private string Part1Logic(StreamReader reader)
         {
-            var reader = GetInputTextReader();
             int? last = null;
-            var increases = 0; 
+            var increases = 0;
 
             //process each number into a number list
             while (!reader.EndOfStream)
@@ -30,18 +22,39 @@ namespace ProphetsWay.AoC.Core.y2021.Day_01
                     if (value > last)
                         increases++;
                 }
-                
+
                 last = value;
             }
 
             return increases.ToString();
         }
 
+        public override string Sample1()
+        {
+            var reader = GetInputTextReader(true);
+            return Part1Logic(reader);
+        }
+
+        public override string Part1()
+        {
+            var reader = GetInputTextReader();
+            return Part1Logic(reader);
+        }
+
+        public override string Sample2()
+        {
+            var reader = GetInputTextReader(true);
+            return Part2Logic(reader);
+        }
+
         public override string Part2()
         {
-            //read in input text file
             var reader = GetInputTextReader();
+            return Part2Logic(reader);
+        }
 
+        public string Part2Logic(StreamReader reader)
+        {
             int? windowAlpha = null;
             int? windowBravo = null;
             int? windowCharlie = null;

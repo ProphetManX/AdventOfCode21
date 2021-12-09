@@ -1,16 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ProphetsWay.AoC.Core.y2021.Day_06
+﻿namespace ProphetsWay.AoC.Core.y2021.Day_06
 {
     public class Logic : BaseLogic
     {
-        public long ProcessFish(int days)
+        public override string Part1()
         {
-            var reader = GetInputTextReader();
+            return Part1Logic(false);
+        }
+
+        public override string Part2()
+        {
+            return Part2Logic(false);
+        }
+
+        public override string Sample1()
+        {
+            return Part1Logic(true);
+        }
+
+        public override string Sample2()
+        {
+            return Part2Logic(true);
+        }
+
+        public long ProcessFish(bool isSample, int days)
+        {
+            var reader = GetInputTextReader(isSample);
             
             //a listing of current quantity of fish at each stage of their cooldowns
             var school = new Dictionary<int, long>();
@@ -51,14 +65,14 @@ namespace ProphetsWay.AoC.Core.y2021.Day_06
             return totalFish;
         }
 
-        public override string Part1()
+        private string Part1Logic(bool isSample)
         {
-            return ProcessFish(80).ToString();
+            return ProcessFish(isSample, 80).ToString();
         }
 
-        public override string Part2()
+        private string Part2Logic(bool isSample)
         {
-            return ProcessFish(256).ToString();
+            return ProcessFish(isSample, 256).ToString();
         }
 
         public class Fish

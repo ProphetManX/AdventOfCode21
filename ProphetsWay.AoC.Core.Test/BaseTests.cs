@@ -9,7 +9,9 @@ namespace ProphetsWay.AoC.Core.Test
         private T _logic;
         private string _day;
 
+        public abstract string Sample1Result { get; }
         public abstract string Part1Result { get; }
+        public abstract string Sample2Result { get; }
         public abstract string Part2Result { get; }
 
         [SetUp]
@@ -22,11 +24,27 @@ namespace ProphetsWay.AoC.Core.Test
         }
 
         [Test]
+        public void TestSample1()
+        {
+            var result = _logic.Sample1();
+            Assert.AreEqual(Sample1Result, result);
+            Console.WriteLine($"{_day} Sample 1 Result: {result}");
+        }
+
+        [Test]
         public void TestPart1()
         {
             var result = _logic.Part1();
             Assert.AreEqual(Part1Result, result);
             Console.WriteLine($"{_day} Part 1 Result: {result}");
+        }
+
+        [Test]
+        public void TestSample2()
+        {
+            var result = _logic.Sample2();
+            Assert.AreEqual(Sample2Result, result);
+            Console.WriteLine($"{_day} Sample 2 Result: {result}");
         }
 
         [Test]

@@ -1,17 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ProphetsWay.AoC.Core.y2021.Day_02
+﻿namespace ProphetsWay.AoC.Core.y2021.Day_02
 {
     public class Logic : BaseLogic
     {
         public override string Part1()
         {
+            return Part1Logic(false);
+        }
+
+        public override string Part2()
+        {
+            return Part2Logic(false);
+        }
+
+        public override string Sample1()
+        {
+            return Part1Logic(true);
+        }
+
+        public override string Sample2()
+        {
+            return Part2Logic(true);
+        }
+
+        private string Part1Logic(bool isSample)
+        {
             //read in input text file
-            var reader = GetInputTextReader();
+            var reader = GetInputTextReader(isSample);
 
             int horizontal = 0;
             int depth = 0;
@@ -46,10 +60,10 @@ namespace ProphetsWay.AoC.Core.y2021.Day_02
             return (horizontal * depth).ToString();
         }
 
-        public override string Part2()
+        private string Part2Logic(bool isSample)
         {
             //read in input text file
-            var reader = GetInputTextReader();
+            var reader = GetInputTextReader(isSample);
 
             int horizontal = 0;
             int depth = 0;

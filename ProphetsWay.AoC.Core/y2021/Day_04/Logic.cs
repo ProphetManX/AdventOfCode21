@@ -1,16 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ProphetsWay.AoC.Core.y2021.Day_04
+﻿namespace ProphetsWay.AoC.Core.y2021.Day_04
 {
     public class Logic : BaseLogic
     {
-        public (List<CallOut>, List<Board>) SetupGame()
+        public override string Part1()
         {
-            var reader = GetInputTextReader();
+            return Part1Logic(false);
+        }
+
+        public override string Part2()
+        {
+            return Part2Logic(false);
+        }
+
+        public override string Sample1()
+        {
+            return Part1Logic(true);
+        }
+
+        public override string Sample2()
+        {
+            return Part2Logic(true);
+        }
+
+        public (List<CallOut>, List<Board>) SetupGame(bool isSample)
+        {
+            var reader = GetInputTextReader(isSample);
 
             var callOuts = new List<CallOut>();
             var lookups = new Dictionary<int, CallOut>();
@@ -67,9 +81,9 @@ namespace ProphetsWay.AoC.Core.y2021.Day_04
             return (callOuts, boards);
         }
 
-        public override string Part1()
+        private string Part1Logic(bool isSample)
         {
-            var (callOuts, boards) = SetupGame();
+            var (callOuts, boards) = SetupGame(isSample);
 
             foreach (var callout in callOuts)
             {
@@ -83,9 +97,9 @@ namespace ProphetsWay.AoC.Core.y2021.Day_04
             throw new Exception("shouldn't be here...");
         }
 
-        public override string Part2()
+        private string Part2Logic(bool isSample)
         {
-            var (callOuts, boards) = SetupGame();
+            var (callOuts, boards) = SetupGame(isSample);
 
             Board lastWinningBoard = null;
             for(var i = 0; i < callOuts.Count; i++)
