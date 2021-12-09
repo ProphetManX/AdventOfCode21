@@ -9,6 +9,8 @@
 
   <ItemGroup>
     <None Remove="y2020\Day_01\sample.txt" />
+    <None Remove="y2020\Day_05\Input.txt" />
+    <None Remove="y2020\Day_05\sample.txt" />
     <None Remove="y2020\Day_04\Input.txt" />
     <None Remove="y2020\Day_04\sample.txt" />
     <None Remove="y2020\Day_03\Input.txt" />
@@ -38,6 +40,12 @@
 
   <ItemGroup>
     <Content Include="y2020\Day_01\sample.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="y2020\Day_05\Input.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="y2020\Day_05\sample.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="y2020\Day_04\Input.txt">

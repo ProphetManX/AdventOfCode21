@@ -2,7 +2,7 @@
 {
     public abstract class BaseLogic
     {
-        public StreamReader GetInputTextReader(bool isSample = false)
+        public StreamReader GetInputTextReader(bool isSample)
         {
             var t = GetType();
             var ns = t.Namespace;
