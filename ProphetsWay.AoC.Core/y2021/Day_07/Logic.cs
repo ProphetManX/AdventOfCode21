@@ -56,12 +56,20 @@
             return lowestFuelUse;
         }
 
+        private Dictionary<int, int> Part2DeltaCosts = new Dictionary<int, int> { { 1, 1 } };
         public int CalculatePart2FuelDelta(int delta)
         {
-            var actualCost = 0;
-            for(var i = 1; i <= delta; i++)
+            if (delta == 0)
+                return 0;
+
+            if(Part2DeltaCosts.ContainsKey(delta))
+                return Part2DeltaCosts[delta];
+
+            var actualCost = Part2DeltaCosts.Values.Last();
+            for(var i = Part2DeltaCosts.Keys.Last() + 1; i <= delta; i++)
             {
                 actualCost += i;
+                Part2DeltaCosts.Add(i, actualCost);
             }
 
             return actualCost;
