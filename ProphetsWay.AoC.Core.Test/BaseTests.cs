@@ -53,6 +53,13 @@ namespace ProphetsWay.AoC.Core.Test
         public void TestSample2()
         {
             var result = _logic.Part2(true);
+
+            if (string.IsNullOrEmpty(Part2.Sample))
+            {
+                Console.WriteLine($"{_day} Sample 2 | SKIPPED no data");
+                return;
+            }
+
             Assert.AreEqual(Part2.Sample, result);
             Console.WriteLine($"{_day} Sample 2 Result: {result}");
         }
