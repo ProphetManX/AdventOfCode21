@@ -21,9 +21,7 @@
             return reader;
         }
 
-        public abstract string Sample1();
-        public abstract string Part1();
-        public abstract string Sample2();
-        public abstract string Part2();
+        public abstract string Part1(bool runSample = false);
+        public abstract string Part2(bool runSample = false);
     }
 }

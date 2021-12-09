@@ -4,10 +4,7 @@ namespace ProphetsWay.AoC.Core.Test.y2021
 {
     public class Day_01_Tests : BaseTests<Logic>
     {
-        public override string Sample1Result => "7";
-        public override string Part1Result => "1298";
-        public override string Sample2Result => "5";
-        public override string Part2Result => "1248";
-
+        public override Results Part1 => new Results("7", "1298");
+        public override Results Part2 => new Results("5", "1248");
     }
 }
