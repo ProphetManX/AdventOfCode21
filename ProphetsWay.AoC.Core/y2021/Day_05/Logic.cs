@@ -2,19 +2,9 @@
 {
     public class Logic : BaseLogic
     {
-        public override string Part1(bool runSample = false)
+        private List<Segment> ReadSegments(bool runSample)
         {
-            return Part1Logic(runSample);
-        }
-
-        public override string Part2(bool runSample = false)
-        {
-            return Part2Logic(runSample);
-        }
-
-        private string Part1Logic(bool isSample)
-        {
-            var reader = GetInputTextReader(isSample);
+            var reader = GetInputTextReader(runSample);
 
             var segments = new List<Segment>();
             while (!reader.EndOfStream)
@@ -26,49 +16,35 @@
                 segments.Add(new Segment(line));
             }
 
-            var map = new Map();
+            return segments;
+        }
 
+        private Map PlotSegments(List<Segment> segments, bool includeDiag = false)
+        {
+             var map = new Map();
             foreach(var segment in segments)
             {
-                if(segment.IsVertical || segment.IsHorizontal)
+                if(segment.IsVertical || segment.IsHorizontal || (includeDiag && segment.IsDiagonal))
                 {
                     map.PlotSegment(segment);
                 }
             }
 
+            return map;
+        }
+
+        public override string Part1(bool runSample = false)
+        {
+            var segments = ReadSegments(runSample);
+            var map = PlotSegments(segments);
+
             return map.Positions.Where(p => p.Coverage > 1).Count().ToString();
         }
 
-        private string Part2Logic(bool isSample)
+        public override string Part2(bool runSample = false)
         {
-            var reader = GetInputTextReader(isSample);
-
-            var segments = new List<Segment>();
-            while (!reader.EndOfStream)
-            {
-                var line = reader.ReadLine();
-                if (line == null)
-                    break;
-
-                segments.Add(new Segment(line));
-            }
-
-            var map = new Map();
-
-            foreach (var segment in segments)
-            {
-                map.PlotSegment(segment);
-
-                if(segment.IsVertical || segment.IsHorizontal || segment.IsDiagonal)
-                {
-                    //yay
-
-                }
-                else
-                {
-                    var x = "boo";
-                }
-            }
+            var segments = ReadSegments(runSample);
+            var map = PlotSegments(segments, true);
 
             return map.Positions.Where(p => p.Coverage > 1).Count().ToString();
         }
@@ -79,14 +55,6 @@
             {
                 Graph = new Position[1000, 1000];
                 Positions = new List<Position>();
-
-                for (var x = 0; x < 1000; x++)
-                    for (var y = 0; y < 1000; y++)
-                    {
-                        var p = new Position(x, y);
-                        Graph[x, y] = p;
-                        Positions.Add(p);
-                    }
             }
 
             public List<Position> Positions { get; private set; }
@@ -98,14 +66,34 @@
                 {
                     var (low, high) = SortPoints(segment.Start.Y, segment.End.Y);
                     for (var y = low; y <= high; y++)
-                        Graph[segment.Start.X, y].Coverage++;
+                    {
+                        var pos = Graph[segment.Start.X, y];
+                        if(pos == null)
+                        {
+                            pos = new Position(segment.Start.X, y);
+                            Graph[segment.Start.X, y] = pos;
+                            Positions.Add(pos);
+                        }
+
+                        pos.Coverage++;
+                    }
                 }
 
                 if (segment.IsHorizontal)
                 {
                     var (low, high) = SortPoints(segment.Start.X, segment.End.X);
                     for (var x = low; x <= high; x++)
-                        Graph[x, segment.Start.Y].Coverage++;
+                    {
+                        var pos = Graph[x, segment.Start.Y];
+                        if(pos == null)
+                        {
+                            pos = new Position(x, segment.Start.Y);
+                            Graph[x, segment.Start.Y] = pos;
+                            Positions.Add(pos);
+                        }
+                        
+                        pos.Coverage++;
+                    }
                 }
 
                 if (segment.IsDiagonal)
@@ -122,10 +110,17 @@
                     {
                         var xD = d * xDirection;
                         var yD = d * yDirection;
-                        Graph[segment.Start.X + xD, segment.Start.Y + yD].Coverage++;
+
+                        var pos = Graph[segment.Start.X + xD, segment.Start.Y + yD];
+                        if(pos == null)
+                        {
+                            pos = new Position(segment.Start.X + xD, segment.Start.Y + yD);
+                            Graph[segment.Start.X + xD, segment.Start.Y + yD] = pos;
+                            Positions.Add(pos);
+                        }
+
+                        pos.Coverage++;
                     }
-
-
                 }
             }
 
