@@ -29,27 +29,15 @@
             return increases.ToString();
         }
 
-        public override string Sample1()
+        public override string Part1(bool runSample = false)
         {
-            var reader = GetInputTextReader(true);
+            var reader = GetInputTextReader(runSample);
             return Part1Logic(reader);
         }
 
-        public override string Part1()
+        public override string Part2(bool runSample = false)
         {
-            var reader = GetInputTextReader();
-            return Part1Logic(reader);
-        }
-
-        public override string Sample2()
-        {
-            var reader = GetInputTextReader(true);
-            return Part2Logic(reader);
-        }
-
-        public override string Part2()
-        {
-            var reader = GetInputTextReader();
+            var reader = GetInputTextReader(runSample);
             return Part2Logic(reader);
         }
 

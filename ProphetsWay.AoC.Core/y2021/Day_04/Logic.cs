@@ -2,24 +2,14 @@
 {
     public class Logic : BaseLogic
     {
-        public override string Part1()
+        public override string Part1(bool runSample = false)
         {
-            return Part1Logic(false);
+            return Part1Logic(runSample);
         }
 
-        public override string Part2()
+        public override string Part2(bool runSample = false)
         {
-            return Part2Logic(false);
-        }
-
-        public override string Sample1()
-        {
-            return Part1Logic(true);
-        }
-
-        public override string Sample2()
-        {
-            return Part2Logic(true);
+            return Part2Logic(runSample);
         }
 
         public (List<CallOut>, List<Board>) SetupGame(bool isSample)

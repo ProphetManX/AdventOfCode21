@@ -34,17 +34,9 @@
             return null;
         }
 
-        public override string Sample1()
+        public override string Part1(bool runSample = false)
         {
-            var items = GetNumberInput(true);
-            var result = FindSumProduct(items, 2020);
-
-            return result?.ToString();
-        }
-
-        public override string Part1()
-        {
-            var items = GetNumberInput(false);
+            var items = GetNumberInput(runSample);
 
             var result = FindSumProduct(items, 2020);
 
@@ -76,17 +68,9 @@
             return null;
         }
 
-        public override string Part2()
+        public override string Part2(bool runSample = false)
         {
-            return Part2Logic(false);
+            return Part2Logic(runSample);
         }
-
-        public override string Sample2()
-        {
-            return Part2Logic(true);
-        }
-
-
-
     }
 }

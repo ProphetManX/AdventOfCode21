@@ -1,4 +1,4 @@
-using ProphetsWay.AoC.Core.y2021.Day_01;
+using ProphetsWay.AoC.Core.y2021.Day_00;
 
 namespace ProphetsWay.AoC.Core.Test.y2021
 {
