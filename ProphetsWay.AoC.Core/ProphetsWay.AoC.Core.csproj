@@ -32,6 +32,8 @@
     <None Remove="y2021\Day_04\sample.txt" />
     <None Remove="y2021\Day_05\sample.txt" />
     <None Remove="y2021\Day_06\sample.txt" />
+    <None Remove="y2021\Day_12\input.txt" />
+    <None Remove="y2021\Day_12\sample.txt" />
     <None Remove="y2021\Day_11\input.txt" />
     <None Remove="y2021\Day_11\sample.txt" />
     <None Remove="y2021\Day_10\input.txt" />
@@ -119,6 +121,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="y2021\Day_06\sample.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="y2021\Day_12\input.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="y2021\Day_12\sample.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="y2021\Day_11\input.txt">
