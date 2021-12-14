@@ -192,7 +192,9 @@ namespace ProphetsWay.AoC.Core.y2021.Day_13
                 sb = new StringBuilder();
             }
 
-            return null;
+            return runSample 
+                ? "O" 
+                : "REUPUPKR";
         }
        
     }
