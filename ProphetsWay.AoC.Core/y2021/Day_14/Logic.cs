@@ -65,7 +65,7 @@
         {
             var newTemplate = new Dictionary<string, long>();
 
-            foreach(var keyPair in currTemplate)
+            foreach (var keyPair in currTemplate)
             {
                 var insert = rules[keyPair.Key];
                 var newA = $"{keyPair.Key[0]}{insert}";
@@ -88,10 +88,10 @@
         {
             var newTemplate = new Dictionary<string, long>();
 
-            for(var i = 1; i< template.Length; i++)
+            for (var i = 1; i < template.Length; i++)
             {
-                var pair = $"{template[i-1]}{template[i]}";
-             
+                var pair = $"{template[i - 1]}{template[i]}";
+
                 if (!newTemplate.ContainsKey(pair))
                     newTemplate.Add(pair, 0);
 
@@ -113,7 +113,7 @@
             var (template, rules) = LoadDataSet(runSample);
             return ProcessTemplateTimes(template, rules, 40);
         }
-       
+
     }
 }
 
