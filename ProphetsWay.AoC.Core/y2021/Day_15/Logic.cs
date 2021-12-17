@@ -2,7 +2,6 @@
 {
     public class Logic : BaseLogic
     {
-
         public class Position
         {
             public override string ToString()
@@ -13,7 +12,6 @@
             {
                 Value = int.Parse(c.ToString());
             }
-
             public Position(int value, int x, int y) : this(x, y)
             {
                 if(value > 9)
@@ -21,11 +19,11 @@
                 
                 Value = value;
             }
-
             internal Position(int x, int y)
             {
                 X = x;
                 Y = y;
+                Connections = new List<Position>();
                 CheapestRiskToHere = (x == 0 && y == 0)
                     ? 0 : int.MaxValue;
             }
@@ -35,7 +33,17 @@
 
             public long CheapestRiskToHere { get; set; }
 
+            public List<Position> Connections { get; }
+
             public int Value { get; }
+
+            public void CalculateHeuristic(int endX, int endY)
+            {
+                var dx = Math.Abs(endX - X);
+                var dy = Math.Abs(endY - Y);
+                Heuristic = dx + dy;
+            }
+            public int Heuristic { get; private set; }
         }
 
         public Position[,] LoadDataSet(bool runSample)
@@ -76,6 +84,99 @@
                     pGrid[x, y] = grid[y][x];
 
             return pGrid;
+        }
+
+        public void ConstructConnections(Position[,] grid)
+        {
+            var maxX = grid.GetUpperBound(0);
+            var maxY = grid.GetUpperBound(1);
+
+            for (var y = 0; y <= maxY; y++)
+            {
+                for (var x = 0; x <= maxX; x++)
+                {
+                    var curr = grid[x, y];
+                    curr.CalculateHeuristic(maxX, maxY);
+
+                    if(x > 0)
+                    {
+                        var left = grid[x - 1, y];
+                        CheckAndMakeConnections(curr, left);
+                    }
+
+                    if(y > 0)
+                    {
+                        var up = grid[x, y - 1];
+                        CheckAndMakeConnections(curr, up);
+                    }
+
+                }
+            }
+        }
+
+        public void CheckAndMakeConnections(Position a, Position b)
+        {
+            if (!a.Connections.Contains(b)) {
+                a.Connections.Add(b);
+                b.Connections.Add(a);
+            }
+        }
+
+        public long UseHeuristics(Position[,] grid)
+        {
+            var maxX = grid.GetUpperBound(0);
+            var maxY = grid.GetUpperBound(1);
+
+            var start = grid[0, 0];
+
+            HPath(start);
+
+            for (var y = 0; y <= maxY; y++)
+                for (var x = 0; x <= maxX; x++)
+                {
+
+                }
+
+            return -1;
+        }
+
+        public void HPath(Position curr)
+        {
+            Position bestOption = null;
+            foreach(var adj in curr.Connections)
+            {
+                adj.CheapestRiskToHere = curr.CheapestRiskToHere + adj.Value;
+
+                if (bestOption == null || adj.Heuristic + adj.Value < bestOption?.Value + bestOption?.Heuristic)
+                    bestOption = adj;
+            }
+
+            HPath(bestOption);
+        }
+
+        public long CrawlConnections(Position[,] grid)
+        {
+            var maxX = grid.GetUpperBound(0);
+            var maxY = grid.GetUpperBound(1);
+
+
+            for(var y = 0; y <= maxY;y++)
+                for(var x = 0; x <= maxX;x++)
+                {
+                    var curr = grid[x, y];
+                    foreach(var conn in curr.Connections)
+                    {
+                        var connRisk = conn.CheapestRiskToHere;
+                        var newRisk = curr.CheapestRiskToHere + conn.Value;
+                        if (newRisk < connRisk)
+                            conn.CheapestRiskToHere = newRisk;
+
+                        //conn.Connections.Remove(curr);
+                    }
+                }
+
+
+            return grid[maxX, maxY].CheapestRiskToHere;
         }
 
         public void CrawlFromTopLeft(Position[,] grid, int maxX, int maxY)
@@ -171,6 +272,8 @@
 
             }
 
+            ConstructConnections(newGrid);
+
             return newGrid;
         }
 
@@ -209,6 +312,10 @@
         {
             var grid = LoadDataSet(runSample);
 
+            ConstructConnections(grid);
+            var leastRisk3 = CrawlConnections(grid);
+            return leastRisk3.ToString();
+
             var leastRisk2 = GoLineByLine(grid);
             return leastRisk2.ToString();
         }
@@ -218,10 +325,17 @@
             var grid = LoadDataSet(runSample);
             var newGrid = BlowoutGrid(grid);
 
-            RenderBlowoutGrid(newGrid);
+            var leastRisk4 = UseHeuristics(newGrid);
+            return leastRisk4.ToString();
+
+            var leastRisk3 = CrawlConnections(newGrid);
+            return leastRisk3.ToString();   //return 2837  wrong answer... too high
 
             var leastRisk2 = GoLineByLine(newGrid);
-            return leastRisk2.ToString();
+            return leastRisk2.ToString();  //returns 2835   right answer to another puzzle  but not right, too high
+
+
+            RenderBlowoutGrid(newGrid);
         }
 
     }
